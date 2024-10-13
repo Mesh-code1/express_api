@@ -103,3 +103,28 @@ Create a ```GET``` endpoint that retrieves all providers by their specialty
 <br>
 
 
+<br>
+
+## Process of reverse and forward engineering the hospital_db
+### Step 1: Export the Database Schema from MySQL Workbench
+
+1. **Open MySQL Workbench** and connect to your database.
+
+2. **Navigate to "Database" > "Reverse Engineer"**:
+   - Click on **"Database"** in the top menu.
+   - Select **"Reverse Engineer"** from the dropdown. This will allow you to generate an Entity-Relationship (ER) diagram, which can be saved as a visual representation of your schema.
+
+3. **Select the Schema to Export**:
+   - Choose the **database** you want to export.
+   - Follow the steps to reverse engineer the schema. This will generate a visual ER model.
+
+4. **Export the Model to a File**:
+   - Once the ER model is generated, go to **"File" > "Export" > "Export as SQL CREATE Script…"**.
+   - Save the **SQL file** containing the `CREATE TABLE` statements for all your tables.
+
+Alternatively, you can **export the schema directly** using the **"Data Export" tool**:
+
+- Go to **"Server" > "Data Export"**.
+- Select the **database** and the **"Export to Self-Contained File"** option.
+- This will export the entire schema, including the structure and data if selected.
+<br>
