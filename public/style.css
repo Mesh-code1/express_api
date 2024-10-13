@@ -1,8 +1,124 @@
+/* Navigation Bar Styles */
+.nav-bar {
+    background-color: #4CAF50; /* Match the main color scheme */
+    padding: 2px 2px;
+    display: flex; /* Use flexbox for horizontal alignment */
+    justify-content: center; /* Center the links */
+    border-radius: 5px; /* Slightly rounded corners */
+    margin-bottom: 5px; /* Space below the nav bar */
+    width:auto;
+}
+
+.nav-bar a {
+    color: white; /* Text color for links */
+    text-decoration: none; /* Remove underline from links */
+    padding: 5px 5px; /* Padding around links for better click area */
+    margin: 0 2px; /* Space between links */
+    border-radius: 3px; /* Rounded corners for links */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.nav-bar a:hover {
+    background-color: #45a049; /* Darker shade on hover */
+}
+
+/* Hero Section Styles */
+.hero {
+    background-image: url('hero.jpg'); /* Add your hero image */
+    background-size: cover; /* Cover the entire section */
+    background-position: center; /* Center the image */
+    height: 60vh; /* Set a height for the hero section */
+    display: flex; /* Use flexbox for centering content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    color: white; /* Text color */
+    text-align: center; /* Center text */
+    flex-direction: column; /* Stack items vertically */
+}
+
+.hero-content h1 {
+    font-size: 48px; /* Large font size for main heading */
+    margin: 0; 
+}
+
+.hero-content p {
+    font-size: 24px; /* Medium font size for subtitle */
+    color: black; /* Change subtitle color to black */
+    font-weight: bold; /* Make the subtitle bold */
+}
+
+.cta-button {
+    background-color: #4CAF50; /* Call-to-action button color */
+    color: white; /* Button text color */
+    padding: 5px 30px; /* Button padding */
+    text-decoration: none; /* Remove underline from button */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 18px; /* Font size */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    margin-top: 10px; /* Add margin above button to separate from title */
+}
+
+.cta-button:hover {
+    background-color: #45a049; /* Darker shade on hover */
+}
+
+/* Features Section Styles */
+.features {
+    padding: 5px 5px;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 36px; /* Heading size */
+    margin-bottom: 30px; /* Space below heading */
+}
+
+.feature-cards {
+    display: flex; /* Use flexbox for card layout */
+    justify-content: center; /* Center the cards */
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 20px; /* Space between cards */
+}
+
+.card {
+    background-color: white; /* Card background */
+    padding: 20px; /* Card padding */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Box shadow */
+    width: 250px; /* Card width */
+    text-align: center; /* Center text */
+}
+
+.card h3 {
+    margin-top: 0; /* Remove default margin */
+}
+
+.card1 {
+    background-color: white; /* Card background */
+    padding: 20px; /* Card padding */
+    margin:auto;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Box shadow */
+    width: 90%; /* Card width */
+    text-align: center; /* Center text */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #4CAF50; /* Match the main color scheme */
+    color: white; /* Text color */
+    text-align: center; /* Center text */
+    padding: 10px 0; /* Padding */
+    position: relative; /* Positioning */
+    bottom: 0; /* Align to bottom */
+    width: 100%; /* Full width */
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
     margin: 0;
     padding: 0;
+    background-color: #f0f0f0;
 }
 
 .container {
@@ -13,18 +129,35 @@ body {
 
 h1 {
     color: #333;
+    text-align: center
+    
 }
 
+/* General Form Styles */
 form {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
 
 form input {
     padding: 10px;
-    margin: 5px;
+    margin: 5px 0;
     font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 5px;
+    width: calc(100% - 22px); /* Adjust width for padding and border */
+}
+
+form select {
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: calc(100% - 22px);
 }
 
 button {
@@ -42,6 +175,7 @@ button:hover {
     background-color: #45a049;
 }
 
+/* Table Styles */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -59,6 +193,7 @@ th {
     color: white;
 }
 
+/* Action Button Styles */
 .action-btn {
     cursor: pointer;
     padding: 5px 10px;
@@ -76,4 +211,40 @@ th {
 .delete-btn {
     background-color: #f44336;
     color: white;
+}
+
+/* Additional Styles for New Pages */
+#map {
+    height: 400px; /* Set height for map */
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+input[type="datetime-local"] {
+    width: calc(100% - 22px); /* Adjust width for datetime input */
+}
+
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 22px); /* Adjust width for email and password inputs */
+}
+
+/* Center alignment for forms on small screens */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
 }

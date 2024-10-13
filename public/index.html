@@ -3,43 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital Patients</title>
+    <title>TeleMed - Your Health, Our Priority</title>
+    <link rel="icon" href="icon.png" type="image/x-icon"/>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Hospital Patient Management</h1>
+    <nav class="nav-bar">
+        <a href="register.html">Register</a>
+        <a href="login.html">Login</a>
+        <a href="map.html">Locator</a>
+    </nav>
 
-        <!-- Form for creating/updating patients -->
-        <form id="patientForm">
-            <input type="hidden" id="patientId">
-            <input type="text" id="firstName" placeholder="First Name" required>
-            <input type="text" id="lastName" placeholder="Last Name" required>
-            <input type="date" id="dateOfBirth" placeholder="Date of Birth" required>
-            <input type="text" id="gender" placeholder="Gender" required>
-            <input type="text" id="language" placeholder="Language" required>
-            <button type="submit" id="submitBtn">Add Patient</button>
-        </form>
+    <header class="hero">
+        <div class="card1">
+            <h1>Welcome to TeleMed</h1>
+            <p>Your Health, Our Priority</p>
+            <a href="register.html" class="cta-button">Get Started</a>
+        </div>
+    </header>
 
-        <!-- Button to retrieve patients -->
-        <button id="retrievePatientsBtn">Retrieve Patients</button>
+    <section class="features">
+        <h2>Features</h2>
+        <div class="feature-cards">
+            <div class="card">
+                <h3>In A Remote Area?</h3>
+                <p>Access healthcare services easily with our intuitive platform.</p>
+            </div>
+            <div class="card">
+                <h3>Appointment Booking</h3>
+                <p>Book and manage appointments with ease and receive timely reminders.</p>
+            </div>
+            <div class="card">
+                <h3>Health Center Locator</h3>
+                <p>Find nearby health centers effortlessly using our integrated map feature.</p>
+            </div>
+            <div class="card">
+                <h3>Secure Virtual Consultations</h3>
+                <p>Enjoy virtual consultations with trusted healthcare professionals.</p>
+            </div>
+        </div>
+    </section>
 
-        <!-- Table to display patients -->
-        <table id="patientsTable">
-            <thead>
-                <tr>
-                    <th>Patient ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Date of Birth</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Patient data will be populated here -->
-            </tbody>
-        </table>
-    </div>
-    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2024 TeleMedicine. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>

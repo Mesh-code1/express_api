@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Patients</title>
+    <link rel="icon" href="icon.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<nav class="nav-bar">
+    <a href="index.html">Home</a>
+    <a href="register.html">Register</a>
+    <a href="login.html">Login</a>
+    <a href="appointments.html">Appointments</a>
+    <a href="map.html">Locator</a>
+</nav>
+<body>
+    <div class="container">
+        <h1>Hospital Patient Management</h1>
+
+        <!-- Form for creating/updating patients -->
+        <form id="patientForm">
+            <input type="hidden" id="patientId">
+            <input type="text" id="firstName" placeholder="First Name" required>
+            <input type="text" id="lastName" placeholder="Last Name" required>
+            <input type="date" id="dateOfBirth" placeholder="Date of Birth" required>
+            <input type="text" id="gender" placeholder="Gender" required>
+            <input type="text" id="language" placeholder="Language" required>
+            <button type="submit" id="submitBtn">Add Patient</button>
+        </form>
+
+        <!-- Button to retrieve patients -->
+        <button id="retrievePatientsBtn">Retrieve Patients</button>
+
+        <!-- Table to display patients -->
+        <table id="patientsTable">
+            <thead>
+                <tr>
+                    <th>Patient ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Date of Birth</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Patient data will be populated here -->
+            </tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="icon" href="icon.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<nav class="nav-bar">
+    <a href="index.html">Home</a>
+    <a href="login.html">Login</a>
+    <a href="appointments.html">Appointments</a>
+    <a href="map.html">Locator</a>
+</nav>
+<body>
+    <h1>User Registration</h1>
+    <form id="registerForm">
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <select id="role" required>
+            <option value="patient">Patient</option>
+            <option value="doctor">Doctor</option>
+            <option value="admin">Admin</option>
+        </select>
+        <button type="submit">Register</button>
+    </form>
+    <script src="register.js"></script>
+</body>
+</html>

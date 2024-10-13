@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Appointments</title>
+    <link rel="icon" href="icon.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<nav class="nav-bar">
+    <a href="precords.html">Precords</a>
+    <a href="register.html">Register</a>
+    <a href="login.html">Login</a>
+    <a href="map.html">Locator</a>
+</nav>
+<body>
+    <div class="card1">
+    <h1>Manage Appointments</h1>
+    <form id="appointmentForm">
+        <input type="text" id="patientId" placeholder="Patient ID" required>
+        <input type="text" id="doctorId" placeholder="Doctor ID" required>
+        <input type="datetime-local" id="appointmentTime" required>
+        <button type="submit">Book Appointment</button>
+    </form>
+    </div>
+
+    <table id="appointmentsTable">
+        <thead>
+            <tr>
+                <th>Appointment ID</th>
+                <th>Patient ID</th>
+                <th>Doctor ID</th>
+                <th>Time</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script src="appointments.js"></script>
+</body>
+</html>
