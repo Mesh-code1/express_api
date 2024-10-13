@@ -1,3 +1,25 @@
+ ## Completed the Telemed Web application
+ Key Features
+ ``` User Authentication and Role Management:
+Registration and Login: Secure user registration and login system, with role-based access control for patients and doctors. Profile Management: Users can manage their profiles, update personal information, and view their appointment history.
+ ```
+ ``` Location-Based Services:
+Health Center Locator: Integration with Google Maps API to help users find and view nearby health centers based on their current location or a specified area.
+ ```
+ ``` Appointment Booking:
+Doctor Availability: Patients can view doctors' availability and book appointments directly through the platform. Appointment Management: Users can schedule, reschedule, or cancel appointments, and receive notifications about their bookings.
+ ```
+ ``` Doctor Management:
+Specialization and Availability: Doctors can manage their availability, specializations, and appointment slots, ensuring patients have up-to-date information when booking. Consultation Services: The platform allows for virtual consultations through a secure communication channel.
+ ```
+ ``` User-Friendly Interface:
+Responsive Design: The application features a clean, responsive design that ensures a seamless experience across all devices. Intuitive Navigation: Easy-to-use interface with clear navigation paths for all users, whether they are booking an appointment or managing their doctor profile.
+ ```
+  ``` Security and Compliance:
+Data Security: Implementation of HTTPS, JWT-based authentication, and data encryption to protect user information. Compliance: Adherence to healthcare standards and regulations, ensuring that user data is handled with the utmost confidentiality.
+ ```
+ 
+ ## Testing API endpoints
  ```Retrieve all patients: ``` [GET http://localhost:3000/patients]
 
  ```Retrieve all providers: ``` [GET http://localhost:3000/providers]
@@ -14,7 +36,7 @@
    ```
 3. Install the necessary dependancies
    ```
-   npm install express mysql2 dotenv nodemon
+   npm install express mysql2 dotenv nodemon cors bcrypt jwt
    ```
 4. Create a ``` server.js ``` and ```.env``` files
 5. Basic ```server.js``` setup
@@ -24,21 +46,7 @@
    const express = require('express')
    const app = express()
 
-   
-   // Question 1
-
-
-   // Question 2
-
-
-   // Question 3
-
-
-   // Question 4
-
-   
-
-   // listen to the server
+  
    const PORT = 3000
    app.listen(PORT, () => {
      console.log(`server is runnig on http://localhost:${PORT}`)
