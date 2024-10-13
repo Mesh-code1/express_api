@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const connection = require('./db');
 
+const cors = require('cors');
+app.use(cors());
+
 // Middleware to parse JSON
 app.use(express.json());
 
@@ -21,15 +24,15 @@ app.get('/patients', (req, res) => {
 
 // Create a new patient
 app.post('/patients', (req, res) => {
-    const { first_name, last_name, date_of_birth } = req.body;
-    const query = 'INSERT INTO patients (first_name, last_name, date_of_birth) VALUES (?, ?, ?)';
-    connection.query(query, [first_name, last_name, date_of_birth], (err, result) => {
-      if (err) {
-        return res.status(500).send('Error creating patient.');
-      }
-      res.status(201).send({ message: 'Patient created successfully', patient_id: result.insertId });
-    });
+  const { first_name, last_name, date_of_birth, gender, language } = req.body;
+  const query = 'INSERT INTO patients (first_name, last_name, date_of_birth, gender, language) VALUES (?, ?, ?, ?, ?)';
+  connection.query(query, [first_name, last_name, date_of_birth, gender, language], (err, result) => {
+    if (err) {
+      return res.status(500).send('Error creating patient.');
+    }
+    res.status(201).send({ message: 'Patient created successfully', patient_id: result.insertId });
   });
+});
   
   // Update a patient
   app.put('/patients/:id', (req, res) => {
@@ -47,14 +50,41 @@ app.post('/patients', (req, res) => {
   // Delete a patient
   app.delete('/patients/:id', (req, res) => {
     const { id } = req.params;
-    const query = 'DELETE FROM patients WHERE patient_id = ?';
-    connection.query(query, [id], (err) => {
-      if (err) {
-        return res.status(500).send('Error deleting patient.');
-      }
-      res.send({ message: 'Patient deleted successfully' });
+
+    // Lock the table before performing the delete operation
+    const lockQuery = 'LOCK TABLES patients WRITE';
+    connection.query(lockQuery, (lockErr) => {
+        if (lockErr) {
+            console.error('Error locking table:', lockErr);
+            return res.status(500).send('Error locking table.');
+        }
+
+        // Perform the delete operation
+        const deleteQuery = 'DELETE FROM patients WHERE patient_id = ?';
+        connection.query(deleteQuery, [id], (deleteErr, result) => {
+            if (deleteErr) {
+                console.error('Error deleting patient from database:', deleteErr);
+                return res.status(500).send('Error deleting patient.');
+            }
+
+            if (result.affectedRows === 0) {
+                console.warn(`Patient with ID ${id} not found.`);
+                return res.status(404).send('Patient not found.');
+            }
+
+            // Unlock the table after the delete operation
+            const unlockQuery = 'UNLOCK TABLES';
+            connection.query(unlockQuery, (unlockErr) => {
+                if (unlockErr) {
+                    console.error('Error unlocking table:', unlockErr);
+                    return res.status(500).send('Error unlocking table.');
+                }
+
+                res.send({ message: 'Patient deleted successfully' });
+            });
+        });
     });
-  });
+});
 
 
 

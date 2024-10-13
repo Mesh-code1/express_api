@@ -76,10 +76,20 @@ function updatePatient(id, firstName, lastName, dateOfBirth) {
 }
 
 function deletePatient(id) {
+    console.log(`Attempting to delete patient with ID: ${id}`);
     fetch(`/patients/${id}`, {
         method: 'DELETE',
     })
-    .then(() => retrievePatients())
+    .then(response => {
+        if (response.ok) {
+            console.log('Patient deleted successfully');
+            retrievePatients(); // Refresh the list after deletion
+        } else {
+            return response.text().then(text => { // Get error message from the server
+                console.error('Failed to delete patient. Status:', response.status, 'Message:', text);
+            });
+        }
+    })
     .catch(error => console.error('Error deleting patient:', error));
 }
 
@@ -97,4 +107,37 @@ function resetForm() {
     document.getElementById('lastName').value = '';
     document.getElementById('dateOfBirth').value = '';
     document.getElementById('submitBtn').textContent = 'Add Patient';
+}
+
+function createPatient(firstName, lastName, dateOfBirth, gender, language) {
+    fetch('/patients', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ first_name: firstName, last_name: lastName, date_of_birth: dateOfBirth, gender: gender, language: language }),
+    })
+    .then(response => response.json())
+    .then(() => {
+        retrievePatients();
+        resetForm();
+    })
+    .catch(error => console.error('Error creating patient:', error));
+}
+
+function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const patientId = document.getElementById('patientId').value;
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const dateOfBirth = document.getElementById('dateOfBirth').value;
+    const gender = document.getElementById('gender').value;
+    const language = document.getElementById('language').value;
+
+    if (patientId) {
+        updatePatient(patientId, firstName, lastName, dateOfBirth, gender, language);
+    } else {
+        createPatient(firstName, lastName, dateOfBirth, gender, language);
+    }
 }
